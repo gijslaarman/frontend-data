@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactieve data</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Vergelijk de boeken in de oba.</h1>
+    <!-- Inputs -->
+    <p>Alle boeken in de oba vertaald van 
+        <select name="language" id="language">
+            <option value="dut">Nederlands</option>
+            <option value="eng" selected="selected">Engels</option>
+            <option value="ita">Italiaans</option>
+        </select> 
+        naar
+        <select name="translation" id="translation">
+            <option value="dut" selected="selected">Nederlands</option>
+            <option value="eng">Engels</option>
+            <option value="ita">Italiaans</option>
+        </select></p>
+
+    <p>Tussen de jaren 
+        <select name="minYear" id="minYear">
+            <option value="1900">1900</option>
+            <option value="1910">1910</option>
+            <option value="1920">1920</option>
+            <option value="1930">1930</option>
+            <option value="1940">1940</option>
+            <option value="1950">1950</option>
+            <option value="1960">1960</option>
+            <option value="1970">1970</option>
+            <option value="1980" selected="selected">1980</option>
+            <option value="1990">1990</option>
+            <option value="2000">2000</option>
+            <option value="2010">2010</option>
+            <option value="2018">2018</option>
+        </select>
+
+        &
+
+        <select name="maxYear" id="maxYear">
+            <option value="1900">1900</option>
+            <option value="1910">1910</option>
+            <option value="1920">1920</option>
+            <option value="1930">1930</option>
+            <option value="1940">1940</option>
+            <option value="1950">1950</option>
+            <option value="1960">1960</option>
+            <option value="1970">1970</option>
+            <option value="1980">1980</option>
+            <option value="1990">1990</option>
+            <option value="2000">2000</option>
+            <option value="2010">2010</option>
+            <option value="2018" selected="selected">2018</option>
+        </select>
+    </p>
+    <!-- SVG chart -->
+    <div id="chart"></div>
+
+    <!-- Scripts -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="d3.js"></script>
+</body>
+</html>
