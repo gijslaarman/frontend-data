@@ -128,7 +128,7 @@ makeGraph = data => {
     let parseDate = d3.timeParse('%Y'),
         x = d3.scaleTime().range([0, width]),
         y = d3.scaleLinear().range([height, 0])
-    
+
     areaGenerator = (data, langCode) => {
         let area = d3.area()
         .curve(d3.curveStep)

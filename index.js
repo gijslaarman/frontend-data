@@ -1,4 +1,4 @@
-const data = require('./list.json')
+const data = require('./all.json')
 const express = require('express')
 const app = express()
 const port = 8080
