@@ -1,86 +1,110 @@
-html { font-size: 16px; }
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
 body {
-  background-color: #f1f1f1;
-  font-family: 'Nunito Sans', sans-serif;
-  padding: 50px 50px;
+  background-color: aliceblue;
+  margin: 50px;
+  font-family: 'Roboto', sans-serif;
 }
 
-svg {
-  background-color: #fff;
-  width: 1400px;
-  height: 550px;
+.dataVis {
+  display: flex;
+}
+
+#chart {
+  background-color: white;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+#tabs {
+  padding: 20px 0;
+  width: 100%;
+}
+
+.tab {
+  background-color: white;
+  border-radius: 0 15px 15px 0;
+  padding: 0 15px;
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+.tab .color {
+  box-shadow: 0 3px 10px 0px rgba(0,0,0,0.1);
+  padding: 18px;
   display: inline-block;
-  border-radius: 10px;
-  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
-  margin-left: 50px;
+  border-radius: 50%;
+  margin-right: 11px;
+  opacity: 0.5;
+}
+.tab h2 {
+  width: 80%;
+  display: inline-block;
+  padding: 0 10px;
 }
 
-.wrapper {
-  width: 1300px;
-  position: relative;
-  text-align: center;
-}
-
-.left, .right {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.left {
-  transform: rotate(270deg);
-  position: absolute;
-  top: 370px;
-  left: -90px;
-}
-
-.right {
- background-color: #fff;
- margin-right: -350px;
- margin-top: 30px;
- border-radius: 10px;
- box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
- text-align: left;
- padding: 30px 40px;
- font-size: 16px;
- position: absolute;
- bottom: -100px;
- left: 460px;
-
-}
-
-.right i {
-  margin-right: 10px;
-  padding-right: 14px;
-}
-
-.right span {
-  margin-right: 18px;
-}
-
-.text {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 1em;
-  font-weight: bold;
-}
-
-.bar {
-  fill: #2FB0F0;
-  transition: fill .5s;
-}
-
-.bar:hover {
-  fill: #0e87c3;
+.tab .fa-times {
+  width: 10%;
+  display: inline-block;
+  font-size: 30px;
+  color: indianred;
   cursor: pointer;
 }
 
-.bar2 {
-  fill: #FE8844;
-  left: 20px;
-  background-color: #000;
+.create {
+  text-align: center;
+  display: inline-block;
+  padding: 25px 15px;
 }
 
-.x-axis .tick text {
-    transform: translate(-20px, 15px) rotate(-45deg);
-    margin-top: 50px;
+.create:hover {
+  background-color: #F8F8F8;
+  cursor: pointer;
+}
+
+.create i {
+  font-size: 40px;
+  color: limegreen;
+}
+.create .options {
+  display: none;
+}
+
+.create.openend .add-new {
+  display: none;
+}
+.create.openend .options {
+  display: block;
+}
+.create.openend {
+  text-align: left;
+}
+
+.label {
+  opacity: 0;
+}
+
+.label:hover {
+  opacity: 1;
+}
+
+.yearbar {
+  fill: white;
+  opacity: 0;
+  z-index: 99;
+}
+
+.yearbar:hover {
+  fill:black;
+  opacity: 1;
+}
+
+.yearbar:hover rect {
+  opacity: 0.01;
+}
+
+.yearbar rect {
+  fill: black;
+  opacity: 0;
 }

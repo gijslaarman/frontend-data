@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-j8y0ITrvFafF4EkV1mPW0BKm6dp3c+J9Fky22Man50Ofxo2wNe5pT1oZejDH9/Dt" crossorigin="anonymous">
     <title>Interactieve data</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -22,7 +23,7 @@
             <option value="ita">Italiaans</option>
         </select></p>
 
-    <p>Tussen de jaren 
+    <p>Tussen de jaren
         <select name="minYear" id="minYear">
             <option value="1900">1900</option>
             <option value="1910">1910</option>
@@ -57,9 +58,52 @@
             <option value="2018" selected="selected">2018</option>
         </select>
     </p>
-    <!-- SVG chart -->
-    <div id="chart"></div>
 
+    <select name="type" id="chartType">
+        <option value="cumulativeData" selected="selected">Cumulatief (optellend)</option>
+        <option value="standardData">Per jaar</option>
+    </select>
+    <!-- SVG chart -->
+    <div class="dataVis">
+        <div id="chart"></div>
+        <div id="tabs">
+            <div value="dut" color="orange" class="tab">
+                <div class="color" style="background-color: orange"></div>
+                <h2>Boeken in het Nederlands</h2>
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="create tab">
+                <div class="add-new">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="options">
+                    <h2>Taal: <span>
+                        <select name="language" id="language">
+                            <option value="dut">Nederlands</option>
+                            <option value="eng">Engels</option>
+                        </select>
+                    </span></h2>
+                    <h2>Vertaald van het: <span>
+                        <select name="translation" id="translation">
+                            <option value="null">Niet vertaald</option>
+                            <option value="eng">Engels</option>
+                            <option value="ger">Duits</option>
+                            <option value="fre">Frans</option>
+                        </select>
+                    </span></h2>
+                    <p>Kleur: 
+                        <span>
+                            <select name="colors" id="color">
+                                <option value="blue">Blauw</option>
+                                <option value="red">Rood</option>
+                            </select>
+                        </span>
+                    </p>
+                    <button id="add-tab">Voeg toe</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Scripts -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="d3.js"></script>
