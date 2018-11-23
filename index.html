@@ -8,21 +8,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="loadscreen">
+        <h2>Data aan het laden. <br> Een moment geduld.</h2>
+    </div>
     <h1>Vergelijk de boeken in de oba.</h1>
     <!-- Inputs -->
-    <p>Alle boeken in de oba vertaald van 
-        <select name="language" id="language">
-            <option value="dut">Nederlands</option>
-            <option value="eng" selected="selected">Engels</option>
-            <option value="ita">Italiaans</option>
-        </select> 
-        naar
-        <select name="translation" id="translation">
-            <option value="dut" selected="selected">Nederlands</option>
-            <option value="eng">Engels</option>
-            <option value="ita">Italiaans</option>
-        </select></p>
-
     <p>Tussen de jaren
         <select name="minYear" id="minYear">
             <option value="1900">1900</option>
@@ -59,10 +49,13 @@
         </select>
     </p>
 
-    <select name="type" id="chartType">
-        <option value="cumulativeData" selected="selected">Cumulatief (optellend)</option>
-        <option value="standardData">Per jaar</option>
-    </select>
+    <p>
+        Type grafiek: <select name="type" id="chartType">
+            <option value="cumulativeData" selected="selected">Cumulatief (optellend)</option>
+            <option value="standardData">Per jaar</option>
+        </select>
+    </p>
+    
     <!-- SVG chart -->
     <div class="dataVis">
         <div id="chart"></div>

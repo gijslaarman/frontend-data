@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
 body {
-  background-color: aliceblue;
+  background-color: whitesmoke;
   margin: 50px;
   font-family: 'Roboto', sans-serif;
 }
 
 .dataVis {
   display: flex;
+  padding: 25px 0;
+}
+
+p {
+  font-size: 18px;
 }
 
 #chart {
@@ -107,4 +112,51 @@ body {
 .yearbar rect {
   fill: black;
   opacity: 0;
+}
+
+.loadscreen {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  text-align: center;
+  z-index: 9999;
+  transition: opacity 1s;
+}
+
+  .loadscreen.data-loaded {
+    opacity: 0;
+  }
+
+  .loadscreen h2 {
+    width: 100%;
+    color: red;
+  }
+
+@keyframes fadeOut{
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+select {
+  display: inline;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+  border-radius: 0;
+  border-bottom: 2px solid red;
+  padding: 5px;
+  font-size: 18px;
 }

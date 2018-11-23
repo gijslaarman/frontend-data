@@ -141,22 +141,6 @@ makeGraph = data => {
     x.domain(d3.extent(data, d => parseDate(d.year))).tickFormat(d3.timeFormat("%Y"))
     y.domain([0, d3.max(data, d => d.dut)]).nice()
 
-    let tickLength = data.length > 30 ? 20 : d3.timeYear
-    svg.append('g')
-        .attr('class', 'x axis')
-        .attr('transform', `translate(0, ${height})`)
-        .call(d3.axisBottom(x).tickFormat(d3.timeFormat("%Y")).ticks(tickLength))
-
-    svg.append('g')
-        .attr('class', 'y axis')
-        .call(d3.axisLeft(y))
-        .append('text')
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
-            .attr("dy", "0.71em")
-            .attr("fill", "#000")
-            .text("Aantal boeken");
-
     const tabs = [].slice.call(document.querySelectorAll('.tab'), 0).reverse()
     tabs.forEach(tab => {
         if (tab.getAttribute('class') === 'create tab') {
@@ -173,6 +157,7 @@ makeGraph = data => {
         .style('opacity', '0.5')
     })
 
+    // Adding all the years for each yearbar.
     svg.selectAll('.yearbar')
         .data(data)
         .enter().append('g')
@@ -183,6 +168,8 @@ makeGraph = data => {
             .attr('text-anchor', 'middle')
             .text(d => d.year)
 
+
+    // Adding year data for each added tab.
     tabs.forEach(tab => {
         if (tab.getAttribute('class') === 'create tab') {
             return
@@ -199,7 +186,7 @@ makeGraph = data => {
             .text(d => d[lang])
     })
 
-            
+    // Rectangles to make the yearbars bigger.
     d3.selectAll('.yearbar').append('rect')
         .data(data)
         .attr('x', d => x(parseDate(d.year)))
@@ -207,18 +194,30 @@ makeGraph = data => {
         .attr('width', width / data.length)
         .attr('transform', `translate(${-(width/data.length)/2}, 0)`)
 
-    
+    let tickLength = data.length > 30 ? 20 : d3.timeYear // Sets the tick length to a maximum of ~20
+    svg.append('g')
+        .attr('class', 'x axis')
+        .attr('transform', `translate(0, ${height})`)
+        .call(d3.axisBottom(x).tickFormat(d3.timeFormat("%Y")).ticks(tickLength))
+        .append('text')
+            .attr('x', 10)
+            .attr('dx', '0.71em')
+            .attr('fill', '#000')
+            .attr('transform', `translate(20, -5)`)
+            .text('Publicatie jaar')
 
-    // svg.selectAll('text.eng')
-    //     .data(data)
-    //     .enter().append('text')
-    //     .attr('class', 'eng label')
-    //     .attr('text-anchor', 'middle')
-    //     .attr('x', d => x(parseDate(d.year)))
-    //     .attr('y', d => y(d['eng']))
-    //     .text(d => `${d.year}: ${d['eng']}`)
+    svg.append('g')
+        .attr('class', 'y axis')
+        .call(d3.axisLeft(y))
+        .append('text')
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", "0.71em")
+            .attr("fill", "#000")
+            .text("Aantal boeken");
 
-    
+    document.querySelector('.loadscreen').classList.add('data-loaded')
+    setTimeout(function(){document.querySelector('.loadscreen').style.display = 'none'}, 1000)
 }
 
 renderGraph = () => {
@@ -316,7 +315,7 @@ formData = (data) => {
     renderGraph()
 }
 
-fetch('all.json')
+fetch('http://localhost:8080/api')
     .then(res => res.json()
         .then(data => {
             console.log(data.length)
