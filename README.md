@@ -1,7 +1,7 @@
 # Frontend Data
 Globalisering van de boeken. (Gemeten met de boeken uit de OBA). Zijn er relatief meer internationale boeken bijgekomen vanaf circa 1980?
 
-[Link to graph](https://gijslaarman.github.io/frontend-data/) sorry for the long wait..
+[Link to graph](https://gijslaarman.github.io/frontend-data/)
 
 ![](preview.png)
 <br>
@@ -109,11 +109,11 @@ Zo noem ik de interactie momenteel. Het is 50% af. Dit is wat ik allemaal in ged
 - [x] Talen dynamisch kunnen toevoegen
 - [x] Kleur kiezen voor de taal
 - [x] De aantallen laten zien on hover
+- [x] Laad scherm
 - [ ] De volgorde van talen aanpassen
 - [ ] Percentueel de data laten zien
 - [ ] Tabs kunnen aanpassen
 - [ ] Styling mooier maken
-- [ ] Laad scherm
 
 Waarschijnlijk ga ik nog wat van deze dingen toepassen wanneer ik de tijd ervoor heb. Voor nu zal ik het hier mee moeten doen.
 

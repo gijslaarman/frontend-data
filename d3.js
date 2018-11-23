@@ -315,7 +315,7 @@ formData = (data) => {
     renderGraph()
 }
 
-fetch('http://localhost:8080/api')
+fetch('all.json')
     .then(res => res.json()
         .then(data => {
             console.log(data.length)
